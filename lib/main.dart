@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pomodoro_app/router.dart';
+import 'package:pomodoro_app/screens/loading_screen.dart';
+import 'package:pomodoro_app/screens/feed_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,29 +11,10 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-        textDirection: TextDirection.ltr,
-        child: Container(
-            decoration: const BoxDecoration(
-              color: Colors.white,
-            ),
-            alignment: Alignment.center,
-            child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Hello, World",
-                        style:
-                            TextStyle(fontSize: 40, color: Color(0xFF111111)),
-                      )
-                    ],
-                  )
-                ])));
+    return MaterialApp.router(
+      routerConfig: appRouter,
+    );
   }
 }
